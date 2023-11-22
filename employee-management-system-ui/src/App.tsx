@@ -1,4 +1,5 @@
 import { AddEmployee } from "./components/AddEmployee";
+import { Employee } from "./components/Employee";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div>
       <Navbar />
       <AddEmployee />
+      <Employee />
     </div>
   );
 }
