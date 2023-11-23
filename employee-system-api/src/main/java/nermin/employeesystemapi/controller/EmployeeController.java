@@ -1,10 +1,11 @@
 package nermin.employeesystemapi.controller;
 
 
+import nermin.employeesystemapi.model.Employee;
 import nermin.employeesystemapi.services.EmployeeService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -16,5 +17,12 @@ public class EmployeeController {
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
+
+    @PostMapping("/employees")
+    public Employee createEmployee(@RequestBody Employee employee) {
+        return employeeService.createEmployee(employee);
+    }
+
+
 
 }
