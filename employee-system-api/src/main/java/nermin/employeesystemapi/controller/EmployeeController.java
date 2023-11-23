@@ -23,6 +23,9 @@ public class EmployeeController {
         return employeeService.createEmployee(employee);
     }
 
-
+    @GetMapping("/employees")
+    public List<Employee> getAllEmployees() {
+        return  employeeService.getAllEmployees();
+    }
 
 }
