@@ -1,5 +1,11 @@
+import { useNavigate, useParams } from "react-router-dom";
 
 export const UpdateEmployee = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+
+
   return (
     <div className="flex max-w-2xl mx-auto shadow border-b">
     <div className="px-8 py-8">
