@@ -31,6 +31,18 @@ export const UpdateEmployee = () => {
     fetchData();
   }, []);
 
+  const updateEmployee = (e) => {
+    e.preventDefault();
+    console.log(employee);
+    EmployeeService.updateEmployee(employee, id)
+      .then((response) => {
+        navigate("/employeeList");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="flex max-w-2xl mx-auto shadow border-b">
     <div className="px-8 py-8">
