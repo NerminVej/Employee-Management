@@ -1,16 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EmployeeService from "../services/EmployeeService";
+import { EmployeeType } from "../types/types";
 
-interface Employee {
-  id: string;
-  firstName: string;
-  lastName: string;
-  emailId: string;
-}
 
 export const AddEmployee = () => {
-  const [employee, setEmployee] = useState<Employee>({
+  const [employee, setEmployee] = useState<EmployeeType>({
     id: "",
     firstName: "",
     lastName: "",
