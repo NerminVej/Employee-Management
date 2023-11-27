@@ -1,5 +1,21 @@
+import { useState } from "react";
+
+interface Employee {
+  id: string;
+  firstName: string;
+  lastName: string;
+  emailId: string;
+}
 
 export const Employee = () => {
+  const [employee, setEmployee] = useState<Employee>({
+    id: "",
+    firstName: "",
+    lastName: "",
+    emailId: "",
+  });
+
+  
   return (
     <tr >
     <td className="text-left px-6 py-4 whitespace-nowrap">
