@@ -1,19 +1,8 @@
 import { useState } from "react";
 
-interface Employee {
-  id: string;
-  firstName: string;
-  lastName: string;
-  emailId: string;
-}
+
 
 export const Employee = () => {
-  const [employee, setEmployee] = useState<Employee>({
-    id: "",
-    firstName: "",
-    lastName: "",
-    emailId: "",
-  });
 
   
   return (
@@ -40,3 +29,7 @@ export const Employee = () => {
   </tr>
   )
 }
+function useNavigate() {
+  throw new Error("Function not implemented.");
+}
+
