@@ -1,10 +1,35 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { EmployeeType } from "../types/types";
+import { useEffect } from "react";
+import EmployeeService from "../services/EmployeeService";
+
 
 export const UpdateEmployee = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [employee, setEmployee] = useState<EmployeeType>({
+    id: id,
+    firstName: "",
+    lastName: "",
+    emailId: "",
+  });
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setEmployee({ ...employee, [e.target.name]: value });
+  };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await EmployeeService.getEmployeeById(employee.id);
+        setEmployee(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="flex max-w-2xl mx-auto shadow border-b">
