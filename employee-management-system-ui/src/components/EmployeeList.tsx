@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Employee } from "./Employee";
+import EmployeeService from "../services/EmployeeService";
 
 export const EmployeeList = () => {
 
@@ -15,7 +16,21 @@ export const EmployeeList = () => {
 
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await EmployeeService.getEmployees();
+        setEmployees(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
 
+  
   
   return (
     <div className="container mx-auto my-8">
