@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import EmployeeService from "../services/EmployeeService";
 
 interface Employee {
   id: string;
@@ -23,7 +24,27 @@ export const AddEmployee = () => {
     setEmployee({ ...employee, [e.target.name]: value });
   };
 
-  
+  const saveEmployee = (e) => {
+    e.preventDefault();
+    EmployeeService.saveEmployee(employee)
+      .then((response) => {
+        console.log(response);
+        navigaye("/employeeList");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const reset = (e) => {
+    e.preventDefault();
+    setEmployee({
+      id: "",
+      firstName: "",
+      lastName: "",
+      emailId: "",
+    });
+  };
 
   return (
     <div className="flex max-w-2xl mx-auto shadow border-b">
