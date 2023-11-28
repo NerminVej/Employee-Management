@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router-dom";
 import { AddEmployee } from "./components/AddEmployee";
 import { Employee } from "./components/Employee";
 import { EmployeeList } from "./components/EmployeeList";
@@ -7,11 +8,10 @@ import { UpdateEmployee } from "./components/UpdateEmployee";
 function App() {
   return (
     <div>
-      <Navbar />
-      <AddEmployee />
-      <Employee />
-      <EmployeeList />
-      <UpdateEmployee />
+      <Routes>
+        <Route index element={<EmployeeList />} />
+       
+      </Routes>
     </div>
   );
 }
