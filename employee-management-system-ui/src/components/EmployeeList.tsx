@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Employee } from "./Employee";
 import EmployeeService from "../services/EmployeeService";
 import { EmployeeType } from "../types/types";
+import { Employee } from "./Employee";
 
 export const EmployeeList = () => {
   const navigate = useNavigate();
@@ -17,8 +17,8 @@ export const EmployeeList = () => {
     e.preventDefault();
     EmployeeService.deleteEmployee(id).then((res) => {
       if (employees) {
-        setEmployees((prevElement) => {
-          return prevElement.filter((employee) => employee.id !== id);
+        setEmployees((prevEmployees) => {
+          return prevEmployees?.filter((employee) => employee.id !== id) || [];
         });
       }
     });
@@ -66,7 +66,7 @@ export const EmployeeList = () => {
               </th>
             </tr>
           </thead>
-          {!loading && (
+          {!loading && employees && employees.length > 0 && (
             <tbody className="bg-white">
               {employees.map((employee) => (
                 <Employee
@@ -75,6 +75,15 @@ export const EmployeeList = () => {
                   key={employee.id}
                 ></Employee>
               ))}
+            </tbody>
+          )}
+          {!loading && (!employees || employees.length === 0) && (
+            <tbody>
+              <tr>
+                <td colSpan={4} className="text-center py-4">
+                  No employees found.
+                </td>
+              </tr>
             </tbody>
           )}
         </table>
