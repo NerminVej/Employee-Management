@@ -10,7 +10,10 @@ function App() {
     <div>
       <Routes>
         <Route index element={<EmployeeList />} />
-       
+        <Route path="/" element={<EmployeeList />}></Route>
+        <Route path="/employeeList" element={<EmployeeList />} />
+        <Route path="/addEmployee" element={<AddEmployee />} />
+        <Route path="/editEmployee/:id" element={<UpdateEmployee />} />
       </Routes>
     </div>
   );
