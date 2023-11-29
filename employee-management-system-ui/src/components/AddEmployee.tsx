@@ -21,7 +21,10 @@ export const AddEmployee = () => {
 
   const saveEmployee = (e) => {
     e.preventDefault();
+    console.log(employee);
+    
     EmployeeService.saveEmployee(employee)
+    
       .then((response) => {
         console.log(response);
         navigate("/employeeList");
