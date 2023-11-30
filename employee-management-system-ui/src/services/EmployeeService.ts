@@ -14,7 +14,7 @@ class EmployeeService {
   deleteEmployee(id) {
     return axios.delete(EMPLOYEE_API_BASE_URL + "/" + id);
   }
-  getEmployeeById(id) {
+  getEmployeeById(id: string) {
     return axios.get(EMPLOYEE_API_BASE_URL + "/" + id);
   }
 
