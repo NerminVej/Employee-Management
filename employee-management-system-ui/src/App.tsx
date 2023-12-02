@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AddEmployee } from "./components/AddEmployee";
 import { Employee } from "./components/Employee";
-import { EmployeeList } from "./components/EmployeeList";
+import EmployeeList  from "./components/EmployeeList";
 import Navbar from "./components/Navbar";
 import { UpdateEmployee } from "./components/UpdateEmployee";
 
