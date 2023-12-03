@@ -6,7 +6,7 @@ import Employee from "./Employee";
 const EmployeeList = () => {
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [employees, setEmployees] = useState(null);
 
   useEffect(() => {
