@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import toast from "react-hot-toast";
+import { isPasswordValid } from "../utils/helper";
 
 interface FormData {
   email: string;
@@ -20,10 +21,7 @@ export default function LoginPage() {
     });
   };
 
-  function isPasswordValid(password: string): boolean {
-    const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$/;
-    return regex.test(password);
-  }
+
   
 
   const handleSubmit = (e: FormEvent) => {
