@@ -4,6 +4,7 @@ import { Employee } from "./components/Employee";
 import EmployeeList  from "./components/EmployeeList";
 import Navbar from "./components/Navbar";
 import { UpdateEmployee } from "./components/UpdateEmployee";
+import LoginPage from "./components/LoginPage";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route index element={<EmployeeList />} />
+          <Route index element={<LoginPage />} />
           <Route path="/" element={<EmployeeList />}></Route>
           <Route path="/employeeList" element={<EmployeeList />} />
           <Route path="/addEmployee" element={<AddEmployee />} />
