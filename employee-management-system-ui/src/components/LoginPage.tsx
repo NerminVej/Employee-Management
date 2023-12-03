@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import toast from "react-hot-toast";
 
 interface FormData {
   email: string;
@@ -22,6 +23,7 @@ export default function LoginPage() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log(formData);
+    toast.success('Successfully sent the data to the API!')
   };
 
   return (

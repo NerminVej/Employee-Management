@@ -5,11 +5,13 @@ import EmployeeList  from "./components/EmployeeList";
 import Navbar from "./components/Navbar";
 import { UpdateEmployee } from "./components/UpdateEmployee";
 import LoginPage from "./components/LoginPage";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+      <Toaster/>
         <Navbar />
         <Routes>
           <Route index element={<LoginPage />} />
