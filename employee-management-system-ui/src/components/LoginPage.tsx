@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import toast from "react-hot-toast";
-import { isPasswordValid } from "../utils/helper";
+import { isEmailValid, isPasswordValid } from "../utils/helper";
 
 interface FormData {
   email: string;
@@ -21,21 +21,24 @@ export default function LoginPage() {
     });
   };
 
-
-  
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-  
-    if (!isPasswordValid(formData.password)) {
-      toast.error('Password must have at least 8 characters, one special character, one number, and one uppercase letter.');
+
+    if (!isEmailValid(formData.email)) {
+      toast.error("Please enter a valid email address.");
       return;
     }
-  
+
+    if (!isPasswordValid(formData.password)) {
+      toast.error(
+        "Password must have at least 8 characters, one special character, one number, and one uppercase letter."
+      );
+      return;
+    }
+
     console.log(formData);
-    toast.success('Successfully sent the data to the API!');
+    toast.success("Successfully sent the data to the API!");
   };
-  
 
   return (
     <>
