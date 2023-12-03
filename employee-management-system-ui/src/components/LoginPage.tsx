@@ -20,11 +20,24 @@ export default function LoginPage() {
     });
   };
 
+  function isPasswordValid(password: string): boolean {
+    const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$/;
+    return regex.test(password);
+  }
+  
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+  
+    if (!isPasswordValid(formData.password)) {
+      toast.error('Password must have at least 8 characters, one special character, one number, and one uppercase letter.');
+      return;
+    }
+  
     console.log(formData);
-    toast.success('Successfully sent the data to the API!')
+    toast.success('Successfully sent the data to the API!');
   };
+  
 
   return (
     <>
