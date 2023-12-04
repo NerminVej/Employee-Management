@@ -1,13 +1,12 @@
 package nermin.employeesystemapi.controller;
-
+import nermin.employeesystemapi.model.User;
 import nermin.employeesystemapi.repository.UserRepository;
 import nermin.employeesystemapi.user.Status;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.List;
+
 
 @RestController
 public class UserController {
