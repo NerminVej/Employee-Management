@@ -2,7 +2,10 @@ package nermin.employeesystemapi.controller;
 import nermin.employeesystemapi.model.User;
 import nermin.employeesystemapi.repository.UserRepository;
 import nermin.employeesystemapi.user.Status;
+import nermin.employeesystemapi.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
@@ -12,6 +15,11 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+    @Autowired
+    private JwtUtil jwtUtil;
 
     @PostMapping("/users/register")
     public Status registerUser(@Valid @RequestBody User newUser) {
@@ -67,4 +75,7 @@ public class UserController {
         userRepository.deleteAll();
         return Status.SUCCESS;
     }
+
+
+
 }
